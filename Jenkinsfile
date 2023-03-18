@@ -8,7 +8,10 @@
 
 pipeline {
     agent {
-        label 'ubi8-micro-git-jdk17'
+        //label 'ubi8-micro-git-jdk17'
+        docker {
+            label 'ubi8-micro-git-jdk17'
+        }
     }
     triggers {
         githubPush()
@@ -27,6 +30,7 @@ pipeline {
         stage ('Check docker connection') {
             steps {
                 sh 'hostname'
+                sh 'chmod u+x gradlew'
             }
         }
     }
