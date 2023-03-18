@@ -22,7 +22,8 @@ pipeline {
         retry(0)
         disableConcurrentBuilds abortPrevious: true
         buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5'))
-        skipStagesAfterUnstable()
+        skipDefaultCheckout()
+        //skipStagesAfterUnstable()
         timestamps()
         ansiColor('xterm')
 }
