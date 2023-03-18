@@ -22,7 +22,7 @@ pipeline {
         retry(0)
         disableConcurrentBuilds abortPrevious: true
         buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5'))
-        skipDefaultCheckout()
+        skipDefaultCheckout()   // Critical command!!!
         //skipStagesAfterUnstable()
         timestamps()
         ansiColor('xterm')
@@ -30,8 +30,11 @@ pipeline {
     stages {
         stage ('Check docker connection') {
             steps {
-                sh 'hostname'
+                checkout scm    // Critical command!!!
+                sh 'pwd'
+                sh 'ls -lh'
                 sh 'chmod u+x gradlew'
+                sh './gradlew build'
             }
         }
     }
