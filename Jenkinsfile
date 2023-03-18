@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'docker-ubi9'
+        label 'jenkins-agent'
     }
     stages {
         stage ('Check docker connection') {
