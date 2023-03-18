@@ -17,3 +17,7 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+tasks.named('wrapper') {
+    distributionType = Wrapper.DistributionType.BIN
+}
