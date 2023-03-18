@@ -8,7 +8,7 @@
 
 pipeline {
     agent {
-        label 'ubi9'
+        label 'ubi8-micro-git-jdk17'
     }
     triggers {
         githubPush()
