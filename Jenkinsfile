@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'docker-cloud'
+        label 'docker-ubi9'
     }
     stages {
         stage ('Check docker connection') {
